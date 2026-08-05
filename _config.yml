@@ -1,8 +1,0 @@
-title: "Usman Ali - Cybersecurity Analyst"
-email: "usmanmalik918031@gmail.com"
-description: "Cybersecurity Analyst | Threat Detection — portfolio and blog"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://usmanali.github.io"
-theme: minima
-# Jekyll settings for GitHub Pages
-markdown: kramdown
