@@ -1,0 +1,47 @@
+---
+layout: page
+title: About
+permalink: /about.html
+subtitle: IT Infrastructure Engineer & Network Security Analyst
+---
+<p>IT Infrastructure and Security professional with 2+ years of hands-on experience in Windows Server administration, Hyper-V virtualization, Microsoft 365, endpoint security, and network troubleshooting. Proven track record in Active Directory management, firewall administration (Checkpoint, FortiGate), SIEM operations (Microsoft Sentinel), and IT helpdesk support. Holds a BS in Digital Forensics &amp; Cyber Security and multiple industry certifications.</p>
+
+<div class="btn-row">
+  <a class="btn" href="{{ '/assets/resume.pdf' | relative_url }}">Download Résumé</a>
+  <a class="btn btn-outline" href="mailto:{{ site.email }}">Email Me</a>
+  <a class="btn btn-outline" href="{{ site.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+
+<h2>Experience</h2>
+<div class="timeline">
+  {% for job in site.data.experience %}
+  <div class="timeline-item">
+    <h3>{{ job.title }} · {{ job.company }}</h3>
+    <div class="timeline-meta">{{ job.location }} — {{ job.start }} to {{ job.end }}</div>
+    <ul>
+      {% for b in job.bullets %}<li>{{ b }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+
+<h2>Education</h2>
+<div class="timeline">
+  {% for ed in site.data.education %}
+  <div class="timeline-item">
+    <h3>{{ ed.degree }}</h3>
+    <div class="timeline-meta">{{ ed.school }}, {{ ed.location }} — {{ ed.start }} to {{ ed.end }}</div>
+    {% if ed.notes and ed.notes != "" %}<p>{{ ed.notes }}</p>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<h2>Certifications</h2>
+<div class="cert-grid">
+  {% for cert in site.data.certifications %}
+  <div class="cert-card"><strong>{{ cert.name }}</strong><span>{{ cert.issuer }} — {{ cert.date }}</span></div>
+  {% endfor %}
+</div>
+
+<h2>Core Skills</h2>
+<p>See the full breakdown — including which tools show up most across my lab writeups and videos — on the <a href="{{ '/skills.html' | relative_url }}">Skills page</a>.</p>

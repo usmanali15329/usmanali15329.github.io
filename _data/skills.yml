@@ -1,0 +1,41 @@
+# Core skill set — shown as-is on /skills.html.
+# The "Skill Activity" chart on that page is computed separately, automatically,
+# from the tags on your blog posts / lab writeups / videos — it is NOT edited here.
+- category: "Systems & Infrastructure"
+  items:
+    - "Windows Server Administration"
+    - "Hyper-V Virtualization"
+    - "Active Directory"
+    - "DNS / DHCP / Group Policy"
+    - "Linux"
+- category: "Cloud & Endpoint Management"
+  items:
+    - "Microsoft 365 Administration"
+    - "Microsoft Azure"
+    - "Microsoft Intune"
+    - "Endpoint Security"
+- category: "Security Operations"
+  items:
+    - "Microsoft Sentinel (SIEM)"
+    - "Incident Response"
+    - "Vulnerability Assessment"
+    - "Digital Forensics"
+    - "Network Traffic Analysis"
+    - "Wireshark"
+    - "Tenable"
+- category: "Network & Perimeter Security"
+  items:
+    - "Checkpoint Firewall"
+    - "FortiGate Firewall"
+    - "Imperva WAF"
+    - "VPN & Remote Access"
+- category: "Tools & Scripting"
+  items:
+    - "ServiceNow"
+    - "Jira"
+    - "Python"
+    - "Shell Scripting"
+- category: "IT Support"
+  items:
+    - "IT Helpdesk"
+    - "User Access Management"

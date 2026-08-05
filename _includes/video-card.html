@@ -1,0 +1,23 @@
+<article class="card video-card">
+  {% if include.video.youtube_id and include.video.youtube_id != "" %}
+  <a class="video-thumb" href="{{ include.video.url | relative_url }}">
+    <img src="https://img.youtube.com/vi/{{ include.video.youtube_id }}/hqdefault.jpg" alt="{{ include.video.title }}" loading="lazy">
+    <span class="play-icon">&#9658;</span>
+  </a>
+  {% else %}
+  <a class="video-thumb video-thumb-pending" href="{{ include.video.url | relative_url }}">
+    <span class="pending-label">Coming&nbsp;Soon</span>
+  </a>
+  {% endif %}
+  <div class="card-body">
+    <h3><a href="{{ include.video.url | relative_url }}">{{ include.video.title }}</a></h3>
+    {% if include.video.description %}
+    <p class="card-excerpt">{{ include.video.description | truncatewords: 24 }}</p>
+    {% endif %}
+    {% if include.video.tags.size > 0 %}
+    <div class="tag-row">
+      {% for tag in include.video.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</article>

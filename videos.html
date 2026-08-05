@@ -1,0 +1,24 @@
+---
+layout: page
+title: Videos
+permalink: /videos.html
+subtitle: Walkthroughs and demos — attached to YouTube once each recording is uploaded.
+---
+{% assign vids = site.videos | sort: "date" | reverse %}
+{% assign tag_pool = "" %}
+{% for v in vids %}{% for t in v.tags %}{% assign tag_pool = tag_pool | append: t | append: "|||" %}{% endfor %}{% endfor %}
+{% assign taglist = tag_pool | split: "|||" | uniq | sort %}
+
+{% if vids.size > 0 %}
+<div class="filter-bar" id="videos-filter">
+  <button data-tag="all" class="active" type="button">All</button>
+  {% for t in taglist %}<button data-tag="{{ t }}" type="button">{{ t }}</button>{% endfor %}
+</div>
+<div class="card-grid" data-filter-bar="videos-filter">
+  {% for v in vids %}
+  <div class="filter-item" data-tags="{{ v.tags | join: ',' }}">{% include video-card.html video=v %}</div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty-note">No videos yet — add one via <a href="{{ '/admin.html' | relative_url }}">/admin.html</a>; the YouTube link can be attached later once the recording is uploaded.</p>
+{% endif %}

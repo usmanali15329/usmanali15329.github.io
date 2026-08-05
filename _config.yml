@@ -1,0 +1,55 @@
+title: "Usman Ali"
+tagline: "IT Infrastructure Engineer & Network Security Analyst"
+name: "Muhammad Usman Ali"
+email: "usmanmalik918031@gmail.com"
+github_username: "usmanali"
+linkedin_url: "https://www.linkedin.com/in/usman-ali-b7a6691b0/"
+description: >-
+  Portfolio, blog, and lab writeups for Usman Ali — IT Infrastructure Engineer and
+  Network Security Analyst specializing in Windows Server administration, SIEM
+  operations, firewall management, and digital forensics.
+baseurl: ""
+url: "https://usmanali.github.io"
+author: "Usman Ali"
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+collections:
+  videos:
+    output: true
+    permalink: /videos/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "videos"
+    values:
+      layout: "video"
+
+# Categories used for _posts front matter: blog | htb | thm
+# Videos live in _videos/ as individual markdown files with a `youtube_id`
+# field that starts empty and can be filled in later via /admin.html
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules

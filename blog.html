@@ -1,0 +1,24 @@
+---
+layout: page
+title: Blog
+permalink: /blog.html
+subtitle: Configuration notes, how-tos, and things I broke (then fixed).
+---
+{% assign posts = site.posts | where: "category","blog" | sort: "date" | reverse %}
+{% assign tag_pool = "" %}
+{% for p in posts %}{% for t in p.tags %}{% assign tag_pool = tag_pool | append: t | append: "|||" %}{% endfor %}{% endfor %}
+{% assign taglist = tag_pool | split: "|||" | uniq | sort %}
+
+{% if posts.size > 0 %}
+<div class="filter-bar" id="blog-filter">
+  <button data-tag="all" class="active" type="button">All</button>
+  {% for t in taglist %}<button data-tag="{{ t }}" type="button">{{ t }}</button>{% endfor %}
+</div>
+<div class="card-grid" data-filter-bar="blog-filter">
+  {% for post in posts %}
+  <div class="filter-item" data-tags="{{ post.tags | join: ',' }}">{% include post-card.html post=post %}</div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty-note">No blog posts yet — new write-ups will appear here automatically once published via <a href="{{ '/admin.html' | relative_url }}">/admin.html</a>.</p>
+{% endif %}
