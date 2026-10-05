@@ -1,0 +1,146 @@
+---
+layout: default
+title: Admin
+permalink: /admin.html
+body_class: admin-body
+---
+<div class="panel page-panel">
+  <h1 class="page-title">Site Admin</h1>
+  <p class="page-subtitle">Add blog posts, lab writeups, videos, and edit skills — committed straight to this repo via the GitHub API. No server, no database.</p>
+
+  <div class="callout callout-warn">
+    <strong>Before you paste a token here, read this:</strong>
+    <ul style="margin:8px 0 0; padding-left:1.2em">
+      <li>Create a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained personal access token</a> scoped to <em>only this repository</em>, with <strong>Contents: Read and write</strong> permission and nothing else.</li>
+      <li>The token is kept only in this browser tab's <code>sessionStorage</code> — it is never written to any file, never committed, and disappears when you close the tab. Nobody else can use this page to edit your site; they'd need your token.</li>
+      <li>Don't paste your token in on a shared/public computer, and don't use a broad, all-repos token — a repo-scoped, contents-only token limits the damage if it ever leaks.</li>
+      <li>Every save here becomes a real, public commit to your repo (this is a public portfolio) — review the preview before saving.</li>
+    </ul>
+  </div>
+
+  <div id="connect-view">
+    <div class="field-row">
+      <div class="field">
+        <label for="cfg-owner">GitHub username</label>
+        <input type="text" id="cfg-owner" value="usmanali">
+      </div>
+      <div class="field">
+        <label for="cfg-repo">Repository name</label>
+        <input type="text" id="cfg-repo" value="usmanali.github.io">
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="cfg-branch">Branch</label>
+        <input type="text" id="cfg-branch" value="main">
+      </div>
+      <div class="field">
+        <label for="cfg-token">Personal access token</label>
+        <input type="password" id="cfg-token" placeholder="github_pat_...">
+      </div>
+    </div>
+    <button class="btn" id="connect-btn" type="button">Connect</button>
+    <div class="status-line" id="connect-status"></div>
+  </div>
+
+  <div id="admin-view" style="display:none">
+    <p class="hint">Connected as <strong id="whoami-line"></strong>. <button class="btn btn-outline" id="disconnect-btn" type="button" style="padding:4px 10px; font-size:.75rem">Disconnect</button></p>
+
+    <div class="admin-grid">
+      <div class="admin-tabs">
+        <button data-view="tab-blog" class="active" type="button">New Blog Post</button>
+        <button data-view="tab-lab" type="button">New Lab Writeup</button>
+        <button data-view="tab-video" type="button">New Video</button>
+        <button data-view="tab-skills" type="button">Edit Skills</button>
+        <button data-view="tab-files" type="button">Browse &amp; Edit Files</button>
+      </div>
+
+      <div class="admin-content">
+
+        <!-- New Blog Post -->
+        <div class="admin-panel-view active" id="tab-blog">
+          <h3>New Blog Post</h3>
+          <p class="hint">Configuration write-ups, how-tos, anything that isn't a HTB/THM box. Creates a file in <code>_posts/</code>.</p>
+          <div class="field"><label>Title</label><input type="text" id="blog-title" placeholder="Hardening SSH on a fresh Ubuntu box"></div>
+          <div class="field"><label>Tags (comma separated)</label><input type="text" id="blog-tags" placeholder="linux, ssh, hardening"></div>
+          <div class="field"><label>Excerpt (short summary shown on cards)</label><input type="text" id="blog-excerpt"></div>
+          <div class="field"><label>Body (Markdown)</label><textarea id="blog-body" placeholder="## What I was trying to do&#10;&#10;..."></textarea></div>
+          <button class="btn" data-action="save-blog" type="button">Publish Post</button>
+          <div class="status-line" data-status="blog"></div>
+        </div>
+
+        <!-- New Lab Writeup -->
+        <div class="admin-panel-view" id="tab-lab">
+          <h3>New Lab Writeup</h3>
+          <p class="hint">HackTheBox or TryHackMe walkthrough. Creates a file in <code>_posts/</code> with <code>category: htb</code> or <code>category: thm</code>.</p>
+          <div class="field-row">
+            <div class="field"><label>Platform</label>
+              <select id="lab-platform"><option value="htb">HackTheBox</option><option value="thm">TryHackMe</option></select>
+            </div>
+            <div class="field"><label>Difficulty (optional)</label>
+              <select id="lab-difficulty"><option value="">—</option><option>Easy</option><option>Medium</option><option>Hard</option><option>Insane</option></select>
+            </div>
+          </div>
+          <div class="field"><label>Box / Room title</label><input type="text" id="lab-title" placeholder="e.g. Box or Room name"></div>
+          <div class="field"><label>Tags (comma separated)</label><input type="text" id="lab-tags" placeholder="nmap, enumeration, privilege-escalation"></div>
+          <div class="field"><label>Write-up (Markdown)</label><textarea id="lab-body" placeholder="## Enumeration&#10;&#10;## Foothold&#10;&#10;## Privilege Escalation&#10;&#10;## Lessons Learned"></textarea></div>
+          <button class="btn" data-action="save-lab" type="button">Publish Writeup</button>
+          <div class="status-line" data-status="lab"></div>
+        </div>
+
+        <!-- New Video -->
+        <div class="admin-panel-view" id="tab-video">
+          <h3>New Video</h3>
+          <p class="hint">Creates a file in <code>_videos/</code>. Leave YouTube ID blank if the recording isn't uploaded yet — the page will show "Coming Soon" until you fill it in later.</p>
+          <div class="field"><label>Title</label><input type="text" id="video-title"></div>
+          <div class="field"><label>YouTube ID (optional — the part after <code>v=</code> in the URL)</label><input type="text" id="video-yt" placeholder="dQw4w9WgXcQ"></div>
+          <div class="field"><label>Tags (comma separated)</label><input type="text" id="video-tags"></div>
+          <div class="field"><label>Description</label><input type="text" id="video-desc"></div>
+          <div class="field"><label>Extra notes (Markdown, optional)</label><textarea id="video-body"></textarea></div>
+          <button class="btn" data-action="save-video" type="button">Add Video</button>
+          <div class="status-line" data-status="video"></div>
+        </div>
+
+        <!-- Edit Skills -->
+        <div class="admin-panel-view" id="tab-skills">
+          <h3>Edit Core Skills</h3>
+          <p class="hint">Raw YAML for <code>_data/skills.yml</code> — the categorized skill pills on /skills.html. (The "Skill Activity" bars below them are computed automatically from tags and aren't edited here.)</p>
+          <button class="btn btn-outline" data-action="load-skills" type="button">Load current skills.yml</button>
+          <div class="field" style="margin-top:14px"><textarea id="skills-yaml" placeholder="Click 'Load current skills.yml' first…"></textarea></div>
+          <button class="btn" data-action="save-skills" type="button">Save skills.yml</button>
+          <div class="status-line" data-status="skills"></div>
+        </div>
+
+        <!-- Browse & Edit Files -->
+        <div class="admin-panel-view" id="tab-files">
+          <h3>Browse &amp; Edit Files</h3>
+          <p class="hint">Jump straight to a folder, pick a file, edit its raw content (front matter included), and save. Useful for fixing a typo, filling in a <code>youtube_id</code> later, or editing <code>_data/experience.yml</code>.</p>
+          <div class="field-row">
+            <div class="field"><label>Folder</label>
+              <select id="files-folder">
+                <option value="_posts">_posts</option>
+                <option value="_videos">_videos</option>
+                <option value="_data">_data</option>
+                <option value="">(repo root)</option>
+              </select>
+            </div>
+            <div class="field" style="align-self:flex-end"><button class="btn btn-outline" data-action="list-files" type="button">List files</button></div>
+          </div>
+          <div class="file-list" id="files-list"></div>
+
+          <div class="field" style="margin-top:16px"><label>Path</label><input type="text" id="files-path" placeholder="_posts/2025-11-01-example.md"></div>
+          <div class="field-row">
+            <div class="field" style="align-self:flex-end"><button class="btn btn-outline" data-action="load-file" type="button">Load</button></div>
+            <div class="field" style="align-self:flex-end"><button class="btn btn-outline" data-action="delete-file" type="button" style="border-color:rgba(255,107,122,0.4); color:#ffc4cb">Delete</button></div>
+          </div>
+          <div class="field"><textarea id="files-content" placeholder="Load a file to edit it here…"></textarea></div>
+          <button class="btn" data-action="save-file" type="button">Save File</button>
+          <div class="status-line" data-status="files"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ '/assets/js/admin.js' | relative_url }}" defer></script>
