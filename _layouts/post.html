@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="panel post-panel">
+  <div class="post-header">
+    <span class="badge badge-{{ page.category }}">{{ page.category | upcase }}</span>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+    {% if page.platform %}<span class="badge badge-platform">{{ page.platform }}</span>{% endif %}
+    {% if page.difficulty %}<span class="badge badge-difficulty">{{ page.difficulty }}</span>{% endif %}
+  </div>
+  <h1 class="post-title">{{ page.title }}</h1>
+  {% if page.tags.size > 0 %}
+  <div class="tag-row">
+    {% for tag in page.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <p class="back-link">
+    {% if page.category == "blog" %}
+      <a href="{{ '/blog.html' | relative_url }}">&larr; Back to Blog</a>
+    {% else %}
+      <a href="{{ '/labs.html' | relative_url }}">&larr; Back to Labs</a>
+    {% endif %}
+  </p>
+</article>

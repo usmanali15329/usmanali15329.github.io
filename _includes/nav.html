@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-prompt">usman@sec</span><span class="brand-colon">:~$</span><span class="brand-cursor">_</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+      <a href="{{ '/about.html' | relative_url }}" class="{% if page.url == '/about.html' %}active{% endif %}">About</a>
+      <a href="{{ '/blog.html' | relative_url }}" class="{% if page.url == '/blog.html' or page.category == 'blog' %}active{% endif %}">Blog</a>
+      <a href="{{ '/labs.html' | relative_url }}" class="{% if page.url == '/labs.html' or page.category == 'htb' or page.category == 'thm' %}active{% endif %}">Labs</a>
+      <a href="{{ '/videos.html' | relative_url }}" class="{% if page.url == '/videos.html' or page.collection == 'videos' %}active{% endif %}">Videos</a>
+      <a href="{{ '/skills.html' | relative_url }}" class="{% if page.url == '/skills.html' %}active{% endif %}">Skills</a>
+    </nav>
+  </div>
+</header>
