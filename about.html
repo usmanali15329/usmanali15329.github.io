@@ -1,0 +1,69 @@
+---
+layout: page
+title: About
+permalink: /about.html
+subtitle: Network Security Professional · MSc Data Science Student · Caserta, Italy
+---
+<p>Network security professional with 2+ years of hands-on experience administering Check Point and FortiGate firewalls, triaging security events in SIEM platforms (Microsoft Sentinel), and supporting vulnerability assessment and web application firewall operations (Tenable, Imperva WAF). Currently pursuing an MSc in Data Science, combining a security operations background with growing data analytics skills.</p>
+<p>I'm seeking <strong>SOC Operator / Security Analyst</strong> opportunities where my firewall, SIEM and incident response experience can add immediate value.</p>
+
+<div class="btn-row">
+  <a class="btn" href="{{ '/assets/resume.pdf' | relative_url }}">Download Résumé</a>
+  <a class="btn btn-outline" href="mailto:{{ site.email }}">Email Me</a>
+  <a class="btn btn-outline" href="{{ site.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+
+<h2>Contact</h2>
+<div class="cert-grid">
+  <div class="cert-card"><strong>Email</strong><span><a href="mailto:{{ site.email }}">{{ site.email }}</a></span></div>
+  <div class="cert-card"><strong>Phone</strong><span><a href="tel:{{ site.phone_link }}">{{ site.phone }}</a></span></div>
+  <div class="cert-card"><strong>LinkedIn</strong><span><a href="{{ site.linkedin_url }}" target="_blank" rel="noopener">linkedin.com/in/usmanali043</a></span></div>
+  <div class="cert-card"><strong>Location</strong><span>{{ site.location }}</span></div>
+</div>
+
+<h2>Experience</h2>
+<div class="timeline">
+  {% for job in site.data.experience %}
+  <div class="timeline-item">
+    <h3>{{ job.title }} · {{ job.company }}</h3>
+    <div class="timeline-meta">{{ job.location }} — {{ job.start }} to {{ job.end }}</div>
+    <ul>
+      {% for b in job.bullets %}<li>{{ b }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+
+<h2>Education</h2>
+<div class="timeline">
+  {% for ed in site.data.education %}
+  <div class="timeline-item">
+    <h3>{{ ed.degree }}</h3>
+    <div class="timeline-meta">{{ ed.school }}, {{ ed.location }} — {{ ed.start }} to {{ ed.end }}</div>
+    {% if ed.notes and ed.notes != "" %}<p>{{ ed.notes }}</p>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<h2>Certifications</h2>
+<div class="cert-grid">
+  {% for cert in site.data.certifications %}
+  <div class="cert-card"><strong>{{ cert.name }}</strong><span>{{ cert.issuer }} — {{ cert.date }}</span></div>
+  {% endfor %}
+</div>
+
+<h2>Languages</h2>
+<div class="cert-grid">
+  <div class="cert-card"><strong>Urdu</strong><span>Mother tongue</span></div>
+  <div class="cert-card"><strong>English</strong><span>B2 — listening, reading, writing, speaking</span></div>
+</div>
+
+<h2>Interests</h2>
+<ul>
+  <li><strong>Network Traffic Analysis</strong> — used Wireshark to capture, analyze and report potential security threats in live network traffic.</li>
+  <li><strong>Vulnerability Assessment</strong> — performed assessments on virtual machines, identifying and remediating security vulnerabilities.</li>
+  <li><strong>Malware Analysis</strong> — completed a static malware analysis project documenting malicious behaviors and indicators of compromise.</li>
+</ul>
+
+<h2>Core Skills</h2>
+<p>See the full breakdown — including which tools show up most across my lab writeups and videos — on the <a href="{{ '/skills.html' | relative_url }}">Skills page</a>.</p>
