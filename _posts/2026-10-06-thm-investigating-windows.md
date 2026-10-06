@@ -292,5 +292,3 @@ Last one: I opened Windows Firewall with Advanced Security and looked at the inb
 - File dates are really useful. Just looking at C:\TMP gave me the date of the whole attack.
 - Look, don't run. I opened scripts and text files in Notepad and never executed anything from C:\TMP.
 - Things I'd watch for at work: new scheduled tasks (Event 4698), users added to Administrators (Event 4732), new firewall rules (Event 4946), and changes to the hosts file.
-
-Room by TryHackMe. I used the TechWithZ write-up (techwithz.com) as a reference when I got stuck. All screenshots are from my own run of the lab.
