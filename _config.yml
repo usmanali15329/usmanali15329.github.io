@@ -1,12 +1,13 @@
 title: "Usman Ali"
-tagline: "Network Security Professional & SOC Analyst"
+tagline: "Cyber Security & Network Security Professional"
 name: "Muhammad Usman Ali"
 email: "usmanmalik918031@gmail.com"
 github_username: "usmanali15329"
 linkedin_url: "https://www.linkedin.com/in/usmanali043/"
-phone: "+39 333953295"
-phone_link: "+39333953295"
+phone: "+39 333 195 3295"
+phone_link: "+393331953295"
 location: "Caserta, Italy"
+address: "Via Torrino 14, 81022 Caserta (CE), Italy"
 # Hero portrait: a background-removed image of yourself (transparent PNG or WebP)
 # Leave "" to show the animated "UA" monogram instead.
 profile_photo: "/assets/img/profile.webp"
@@ -15,10 +16,11 @@ profile_photo: "/assets/img/profile.webp"
 profile_depth: "/assets/img/profile-depth.webp"
 profile_meta: "/assets/img/profile.json"
 description: >-
-  Portfolio, blog, and lab writeups for Usman Ali — network security professional
-  with hands-on experience in Check Point and FortiGate firewalls, Microsoft Sentinel
-  SIEM, vulnerability assessment, and Windows infrastructure. MSc Data Science
-  student in Caserta, Italy, seeking SOC Operator / Security Analyst roles.
+  Portfolio, blog and lab writeups of Usman Ali — cyber security and network security
+  professional with 2+ years of hands-on experience in vulnerability assessment, firewall
+  administration (Check Point, FortiGate) and security event monitoring (Microsoft Sentinel),
+  plus Windows Server, Active Directory, Hyper-V and Intune. MSc Data Science student in
+  Caserta, Italy, open to cyber security and network security roles.
 baseurl: ""
 url: "https://usmanali15329.github.io"
 author: "Usman Ali"

@@ -10,6 +10,7 @@
     - "FortiClient"
     - "FortiManager"
     - "Check Point Firewall"
+    - "Check Point SmartDashboard / SmartLog / SmartEvent"
     - "FortiGate Administration"
     - "Imperva WAF"
 - category: "Monitoring & Vulnerability Management"
@@ -36,4 +37,4 @@
 - category: "Languages"
   items:
     - "Urdu (native)"
-    - "English (B2)"
+    - "English (C1)"

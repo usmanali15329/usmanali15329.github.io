@@ -398,7 +398,7 @@ function initFace(visual, reduce, finePointer) {
   setTimeout(() => say("Hi, I'm Usman 👋", { hold: 3200, force: true }), 200);
   face.addEventListener('click', () => {
     face.classList.remove('jump'); void face.offsetWidth; face.classList.add('jump');
-    say(['Nice to meet you! 🤝', "Let's talk security 📬", 'Hiring a SOC analyst? 🛡️'][Math.floor(Math.random() * 3)], { force: true });
+    say(['Nice to meet you! 🤝', "Let's talk security 📬", 'Hiring for security? 🛡️'][Math.floor(Math.random() * 3)], { force: true });
   });
   face.addEventListener('animationend', e => { if (e.animationName === 'jump') face.classList.remove('jump'); });
   face.style.cursor = 'pointer';
@@ -439,7 +439,7 @@ function initFace(visual, reduce, finePointer) {
     else if (t.closest('.terminal')) say('Live Sentinel queries 🛡️', { side });
     else if (t.closest('.face')) say('That tickles 😄', { side });
     else if (t.closest('.hero-name')) say("Yep, that's me!", { side });
-    else if (t.closest('.status-chip')) say('Open to SOC roles in Italy 🇮🇹', { side });
+    else if (t.closest('.status-chip')) say('Open to security roles in Italy 🇮🇹', { side });
   }, { passive: true });
   document.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
 
