@@ -1,0 +1,192 @@
+---
+layout: default
+title: Home
+permalink: /
+body_class: home
+---
+{% assign blogposts = site.posts | where: "category","blog" | sort: "date" | reverse %}
+{% assign htb_posts = site.posts | where: "category", "htb" %}
+{% assign thm_posts = site.posts | where: "category", "thm" %}
+{% assign labs = htb_posts | concat: thm_posts | sort: "date" | reverse %}
+{% assign vids = site.videos | sort: "date" | reverse %}
+{% assign guides = site.posts | where: "category","guide" | sort: "date" | reverse %}
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-copy reveal">
+    <p class="status-chip"><span class="pulse"></span> Open to SOC Operator / Security Analyst roles · {{ site.location }}</p>
+    <p class="hero-hi">Hi, I'm</p>
+    <h1 class="hero-name">Usman<br><span class="accent">Ali.</span></h1>
+    <p class="hero-role">I am a
+      <span class="role-swap" data-roles="SOC Analyst|Network Security Engineer|Infrastructure Administrator|Blue-Team Investigator"><span class="role-text">SOC Analyst</span></span>
+    </p>
+    <p class="hero-tagline">I run Check Point and FortiGate firewalls, triage alerts in Microsoft Sentinel and build the Windows/Hyper-V infrastructure underneath it all. Now doing an MSc in Data Science in Caserta, Italy.</p>
+    <div class="btn-row">
+      <a class="btn" href="{{ '/labs.html' | relative_url }}">See my investigations →</a>
+      <a class="btn btn-ghost" href="{{ '/assets/resume.pdf' | relative_url }}">Download résumé</a>
+    </div>
+  </div>
+
+  <div class="hero-visual reveal" data-delay="1">
+    <div class="hero-word" aria-hidden="true">DEFENDER</div>
+    <div class="portrait" id="portrait">
+      <canvas id="particles" aria-hidden="true"></canvas>
+      {% if site.profile_photo and site.profile_photo != "" %}
+      <div class="face" id="face">
+        <img id="portrait-photo" src="{{ site.profile_photo | relative_url }}" alt="Portrait of {{ site.author }}" hidden>
+      </div>
+      <div class="bubble" id="bubble" aria-hidden="true"><span>Hi, I'm Usman 👋</span></div>
+      {% endif %}
+      <p class="portrait-hint" aria-hidden="true">move your cursor ↯</p>
+    </div>
+    <div class="terminal glass">
+      <div class="terminal-bar"><span></span><span></span><span></span><em>sentinel — live</em></div>
+      <div class="terminal-body">
+        <span class="muted-line">$ whoami</span>
+        usman-ali · blue team · soc<br>
+        <span class="muted-line type-line">$ tail -f alerts.log</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="stat-tiles reveal">
+  <div class="stat-tile glass"><div class="stat-num"><span data-count="2">2</span>+</div><div class="stat-label">Years in security &amp; infra</div></div>
+  <div class="stat-tile glass"><div class="stat-num"><span data-count="{{ site.data.certifications.size }}">{{ site.data.certifications.size }}</span></div><div class="stat-label">Certifications</div></div>
+  <div class="stat-tile glass"><div class="stat-num"><span data-count="{{ guides.size }}">{{ guides.size }}</span></div><div class="stat-label">Build guides</div></div>
+  <div class="stat-tile glass"><div class="stat-num"><span data-count="{{ labs.size }}">{{ labs.size }}</span></div><div class="stat-label">Lab writeups</div></div>
+  <div class="stat-tile glass"><div class="stat-num"><span data-count="{{ blogposts.size }}">{{ blogposts.size }}</span></div><div class="stat-label">Blog posts</div></div>
+</div>
+
+<!-- ============ DOORS ============ -->
+<section class="doors-section">
+  <div class="section-intro reveal">
+    <p class="kicker">// four disciplines</p>
+    <h2 class="big-title">Every door is a <span class="accent">skill set.</span></h2>
+    <p class="section-sub">Hover or tap a door to step inside.</p>
+  </div>
+  <div class="doors">
+    <a class="door reveal" style="--door:#e11d48" href="{{ '/skills.html' | relative_url }}">
+      <span class="door-inside">
+        <span class="door-num">01</span>
+        <strong>Network Security</strong>
+        <span>Check Point &amp; FortiGate admin, rule changes, log analysis, Imperva WAF.</span>
+        <em>Open skills →</em>
+      </span>
+      <span class="door-panel"><span class="door-plate">NETWORK</span><span class="door-knob"></span></span>
+    </a>
+    <a class="door reveal" data-delay="1" style="--door:#2563eb" href="{{ '/labs.html' | relative_url }}">
+      <span class="door-inside">
+        <span class="door-num">02</span>
+        <strong>SOC &amp; DFIR</strong>
+        <span>Sentinel triage, incident response, Windows forensics, TryHackMe &amp; HTB.</span>
+        <em>Open labs →</em>
+      </span>
+      <span class="door-panel"><span class="door-plate">SOC</span><span class="door-knob"></span></span>
+    </a>
+    <a class="door reveal" data-delay="2" style="--door:#16a34a" href="{{ '/guides.html' | relative_url }}">
+      <span class="door-inside">
+        <span class="door-num">03</span>
+        <strong>Infrastructure</strong>
+        <span>Hyper-V, Windows Server, AD/DNS/GPO, M365, Intune, D365 &amp; AX VMs.</span>
+        <em>Open guides →</em>
+      </span>
+      <span class="door-panel"><span class="door-plate">INFRA</span><span class="door-knob"></span></span>
+    </a>
+    <a class="door reveal" data-delay="3" style="--door:#ea580c" href="{{ '/blog.html' | relative_url }}">
+      <span class="door-inside">
+        <span class="door-num">04</span>
+        <strong>Research &amp; Data</strong>
+        <span>Wireshark traffic analysis, static malware analysis, MSc Data Science.</span>
+        <em>Open blog →</em>
+      </span>
+      <span class="door-panel"><span class="door-plate">RESEARCH</span><span class="door-knob"></span></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CASE FILES ============ -->
+<section>
+  <div class="section-intro reveal">
+    <p class="kicker">// case files</p>
+    <h2 class="big-title">Things I actually <span class="accent">shipped.</span></h2>
+  </div>
+  <div class="case-grid">
+    {% for p in site.data.projects %}
+    {% if p.link and p.link != "" %}<a class="case glass reveal" href="{{ p.link | relative_url }}">{% else %}<div class="case glass reveal">{% endif %}
+      <div class="case-top"><span class="case-id">CASE-{{ forloop.index | prepend: '00' | slice: -3, 3 }}</span><span class="case-year">{{ p.year }}</span></div>
+      <h3>{{ p.title }}</h3>
+      <p class="case-org">{{ p.org }}</p>
+      <p class="case-sum">{{ p.summary }}</p>
+      <div class="tag-row">{% for t in p.stack %}<span class="tag">#{{ t }}</span>{% endfor %}</div>
+      {% if p.link and p.link != "" %}<span class="case-go">Read more →</span>{% endif %}
+    {% if p.link and p.link != "" %}</a>{% else %}</div>{% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="time-section">
+  <div class="section-intro reveal">
+    <p class="kicker">// let's go back in time</p>
+    <h2 class="big-title">The path so <span class="accent">far.</span></h2>
+  </div>
+  <div class="time-strip reveal">
+    {% for t in site.data.timeline %}
+    <div class="time-item">
+      <div class="time-year">{{ t.year }}</div>
+      <div class="time-dot"></div>
+      <strong>{{ t.title }}</strong>
+      <span>{{ t.place }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="time-more reveal"><a href="{{ '/about.html' | relative_url }}">Full experience &amp; education →</a></p>
+</section>
+
+<!-- ============ LATEST CONTENT ============ -->
+{% if guides.size > 0 %}
+<div class="section-heading reveal"><h2>Infrastructure guides</h2><a class="see-all" href="{{ '/guides.html' | relative_url }}">See all →</a></div>
+<div class="card-grid">
+  {% for post in guides limit:3 %}{% include post-card.html post=post %}{% endfor %}
+</div>
+{% endif %}
+
+<div class="section-heading reveal"><h2>Recent lab writeups</h2><a class="see-all" href="{{ '/labs.html' | relative_url }}">See all →</a></div>
+{% if labs.size > 0 %}
+<div class="card-grid">
+  {% for post in labs limit:3 %}{% include post-card.html post=post %}{% endfor %}
+</div>
+{% else %}
+<p class="empty-note">No lab writeups yet — HTB/THM notes will show up here once published.</p>
+{% endif %}
+
+<div class="section-heading reveal"><h2>From the blog</h2><a class="see-all" href="{{ '/blog.html' | relative_url }}">See all →</a></div>
+{% if blogposts.size > 0 %}
+<div class="card-grid">
+  {% for post in blogposts limit:3 %}{% include post-card.html post=post %}{% endfor %}
+</div>
+{% else %}
+<p class="empty-note">No blog posts yet — new write-ups will appear here automatically once published via <a href="{{ '/admin.html' | relative_url }}">/admin.html</a>.</p>
+{% endif %}
+
+<div class="section-heading reveal"><h2>Videos</h2><a class="see-all" href="{{ '/videos.html' | relative_url }}">See all →</a></div>
+{% if vids.size > 0 %}
+<div class="card-grid">
+  {% for video in vids limit:3 %}{% include video-card.html video=video %}{% endfor %}
+</div>
+{% else %}
+<p class="empty-note">No videos yet — walkthrough recordings will be linked here once uploaded to YouTube.</p>
+{% endif %}
+
+<!-- ============ CTA ============ -->
+<section class="cta glass reveal">
+  <p class="kicker">// incoming request</p>
+  <h2 class="big-title">Got a role?<br><span class="accent">Let's secure it together.</span></h2>
+  <div class="btn-row">
+    <a class="btn" href="mailto:{{ site.email }}">Email me</a>
+    <a class="btn btn-ghost" href="{{ site.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-ghost" href="{{ '/assets/resume.pdf' | relative_url }}">Résumé (PDF)</a>
+  </div>
+</section>

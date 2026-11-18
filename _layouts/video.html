@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="panel video-panel">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-header">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+  </div>
+  {% if page.youtube_id and page.youtube_id != "" %}
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}" title="{{ page.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  </div>
+  {% else %}
+  <div class="video-embed video-embed-pending">
+    <p>🎬 Video coming soon — this walkthrough will be attached here once it's uploaded to YouTube.</p>
+  </div>
+  {% endif %}
+  {% if page.tags.size > 0 %}
+  <div class="tag-row">
+    {% for tag in page.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <p class="back-link"><a href="{{ '/videos.html' | relative_url }}">&larr; Back to Videos</a></p>
+</article>
