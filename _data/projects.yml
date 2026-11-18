@@ -1,6 +1,14 @@
 # Featured work shown on the home page ("Case files").
 # Every entry is based on real work listed in _data/experience.yml or the guides.
 # `link` is optional — leave it "" if there is no public page.
+# `wide: true` makes a card span the full row (used for the featured case).
+- title: "The Rule Was Fine — the ISP Wasn't"
+  org: "Villa Tech Inc. · Check Point firewalls"
+  year: "2023"
+  summary: "A customer reported no traffic after I added a new rule. Captures on both firewalls showed the UK side sending and receiving fine while nothing reached the Australian firewall; traceroute traced the break to the customer's ISP in Australia — not our policy."
+  stack: [check-point, packet-capture, traceroute, troubleshooting]
+  link: "/blog/2026/11/18/rule-was-fine-isp-wasnt.html"
+  wide: true
 - title: "Support Ticketing System with Azure AD SSO"
   org: "Code Practitioners · Dynatuners"
   year: "2025"

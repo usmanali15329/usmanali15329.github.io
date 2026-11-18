@@ -67,13 +67,13 @@ body_class: home
   </div>
   <div class="case-grid">
     {% for p in site.data.projects %}
-    {% if p.link and p.link != "" %}<a class="case glass reveal" href="{{ p.link | relative_url }}">{% else %}<div class="case glass reveal">{% endif %}
+    {% if p.link and p.link != "" %}<a class="case glass reveal{% if p.wide %} case-wide{% endif %}" href="{{ p.link | relative_url }}">{% else %}<div class="case glass reveal{% if p.wide %} case-wide{% endif %}">{% endif %}
       <div class="case-top"><span class="case-id">CASE-{{ forloop.index | prepend: '00' | slice: -3, 3 }}</span><span class="case-year">{{ p.year }}</span></div>
       <h3>{{ p.title }}</h3>
       <p class="case-org">{{ p.org }}</p>
       <p class="case-sum">{{ p.summary }}</p>
       <div class="tag-row">{% for t in p.stack %}<span class="tag">#{{ t }}</span>{% endfor %}</div>
-      {% if p.link and p.link != "" %}<span class="case-go">Read more →</span>{% endif %}
+      {% if p.link and p.link != "" %}<span class="case-go">{% if p.wide %}Read the full case →{% else %}Read more →{% endif %}</span>{% endif %}
     {% if p.link and p.link != "" %}</a>{% else %}</div>{% endif %}
     {% endfor %}
   </div>
