@@ -1,18 +1,33 @@
 <footer class="site-footer">
-  <div class="footer-wrap">
-    <p class="footer-copy">© {{ site.time | date: "%Y" }} {{ site.author }} — built with Jekyll · hosted on GitHub Pages.</p>
-    <p class="footer-links">
-      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-      <span class="dot">·</span>
-      <a href="tel:{{ site.phone_link }}">{{ site.phone }}</a>
-      <span class="dot">·</span>
-      <span>{{ site.location }}</span>
-      <span class="dot">·</span>
-      <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="dot">·</span>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-      <span class="dot">·</span>
-      <a href="{{ '/admin.html' | relative_url }}" class="admin-link">Admin</a>
-    </p>
+  <svg class="footer-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 50 C 180 10, 360 90, 540 50 S 900 10, 1080 50 S 1350 85, 1440 45 L1440 90 L0 90 Z"/>
+  </svg>
+  <div class="footer-glass">
+    <div class="footer-wrap">
+      <div class="footer-col footer-intro">
+        <p class="footer-title">{{ site.name }}</p>
+        <p class="footer-sub">{{ site.tagline }} · {{ site.location }}</p>
+        <a class="btn" href="{{ '/assets/resume.pdf' | relative_url }}">Download résumé</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-head">Explore</p>
+        <a href="{{ '/guides.html' | relative_url }}">Guides</a>
+        <a href="{{ '/labs.html' | relative_url }}">Lab writeups</a>
+        <a href="{{ '/blog.html' | relative_url }}">Blog</a>
+        <a href="{{ '/videos.html' | relative_url }}">Videos</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-head">Contact</p>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <a href="tel:{{ site.phone_link }}">{{ site.phone }}</a>
+        <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
+        <span>{{ site.location }}</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{ site.time | date: "%Y" }} {{ site.author }} — Jekyll on GitHub Pages</span>
+      <span><a href="{{ '/feed.xml' | relative_url }}">RSS</a><span class="dot">·</span><a href="{{ '/admin.html' | relative_url }}" class="admin-link">Admin</a></span>
+    </div>
+    <div class="footer-wordmark" aria-hidden="true">USMAN ALI</div>
   </div>
 </footer>

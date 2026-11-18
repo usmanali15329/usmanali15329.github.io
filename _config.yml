@@ -2,18 +2,21 @@ title: "Usman Ali"
 tagline: "Network Security Professional & SOC Analyst"
 name: "Muhammad Usman Ali"
 email: "usmanmalik918031@gmail.com"
-github_username: "usmanali"
+github_username: "usmanali15329"
 linkedin_url: "https://www.linkedin.com/in/usmanali043/"
 phone: "+39 333953295"
 phone_link: "+39333953295"
 location: "Caserta, Italy"
+# Hero portrait: put a background-removed PNG of yourself at assets/img/profile.png
+# and set this to "/assets/img/profile.png". Leave "" to show the animated "UA" monogram.
+profile_photo: ""
 description: >-
   Portfolio, blog, and lab writeups for Usman Ali — network security professional
   with hands-on experience in Check Point and FortiGate firewalls, Microsoft Sentinel
   SIEM, vulnerability assessment, and Windows infrastructure. MSc Data Science
   student in Caserta, Italy, seeking SOC Operator / Security Analyst roles.
 baseurl: ""
-url: "https://usmanali.github.io"
+url: "https://usmanali15329.github.io"
 author: "Usman Ali"
 future: true
 markdown: kramdown
