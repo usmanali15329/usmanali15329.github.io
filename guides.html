@@ -1,0 +1,24 @@
+---
+layout: page
+title: Infrastructure Guides
+permalink: /guides.html
+subtitle: Step-by-step build guides from real infrastructure work — Hyper-V, Windows Server, Dynamics AX / D365 environments, and secure remote access.
+---
+{% assign posts = site.posts | where: "category","guide" | sort: "date" | reverse %}
+{% assign tag_pool = "" %}
+{% for p in posts %}{% for t in p.tags %}{% assign tag_pool = tag_pool | append: t | append: "|||" %}{% endfor %}{% endfor %}
+{% assign taglist = tag_pool | split: "|||" | uniq | sort %}
+
+{% if posts.size > 0 %}
+<div class="filter-bar" id="guides-filter">
+  <button data-tag="all" class="active" type="button">All</button>
+  {% for t in taglist %}<button data-tag="{{ t }}" type="button">{{ t }}</button>{% endfor %}
+</div>
+<div class="card-grid" data-filter-bar="guides-filter">
+  {% for post in posts %}
+  <div class="filter-item" data-tags="{{ post.tags | join: ',' }}">{% include post-card.html post=post %}</div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty-note">No guides yet.</p>
+{% endif %}

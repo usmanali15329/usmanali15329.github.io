@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% include head.html %}
+</head>
+<body class="{{ page.body_class }}">
+  {% if page.url == '/' %}
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-inner">
+      <p class="boot-label">initialising soc console</p>
+      <div class="boot-count"><span id="boot-num">0</span><span class="boot-pct">%</span></div>
+      <div class="boot-bar"><span id="boot-fill"></span></div>
+      <p class="boot-log" id="boot-log">loading sensors…</p>
+    </div>
+  </div>
+  <script>
+    try { if (sessionStorage.getItem('booted') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.getElementById('boot').remove(); } catch (e) {}
+  </script>
+  {% endif %}
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-spot" aria-hidden="true"></div>
+  {% include nav.html %}
+  <main class="site-main">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>
