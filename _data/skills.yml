@@ -1,0 +1,39 @@
+# Core skill set — shown as-is on /skills.html.
+# The "Skill Activity" chart on that page is computed separately, automatically,
+# from the tags on your blog posts / lab writeups / videos — it is NOT edited here.
+- category: "Network & Firewall Security"
+  items:
+    - "Network Traffic Analysis"
+    - "Wireshark"
+    - "Fortinet FortiGate"
+    - "FortiAnalyzer"
+    - "FortiClient"
+    - "FortiManager"
+    - "Check Point Firewall"
+    - "FortiGate Administration"
+    - "Imperva WAF"
+- category: "Monitoring & Vulnerability Management"
+  items:
+    - "Microsoft Sentinel (SIEM)"
+    - "Tenable Nessus"
+    - "Vulnerability Assessment"
+    - "Incident Response"
+- category: "Cloud & Systems"
+  items:
+    - "Microsoft Azure"
+    - "Microsoft 365"
+    - "Hyper-V"
+    - "Active Directory"
+    - "DNS / DHCP / Group Policy"
+    - "Microsoft Intune"
+    - "Windows / Windows Server"
+- category: "Other Tools"
+  items:
+    - "ServiceNow"
+    - "Service Management"
+    - "Jira"
+    - "Python (basic)"
+- category: "Languages"
+  items:
+    - "Urdu (native)"
+    - "English (B2)"

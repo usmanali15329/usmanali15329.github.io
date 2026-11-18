@@ -1,0 +1,39 @@
+---
+layout: page
+title: Skills
+permalink: /skills.html
+subtitle: Core toolset, plus what actually shows up in my writeups and videos.
+---
+<h2>Core Toolset</h2>
+{% for block in site.data.skills %}
+<div class="skill-block">
+  <h3>{{ block.category }}</h3>
+  <div class="skill-pills">
+    {% for item in block.items %}<span class="skill-pill">{{ item }}</span>{% endfor %}
+  </div>
+</div>
+{% endfor %}
+
+<h2>Skill Activity</h2>
+<p>Tallied automatically from the tags on every blog post, lab writeup, and video — nothing here is edited by hand. Publish more content tagged with a topic via <a href="{{ '/admin.html' | relative_url }}">/admin.html</a> and it climbs on its own.</p>
+
+{% assign all_items = site.posts | concat: site.videos %}
+{% assign tag_pool = "" %}
+{% for item in all_items %}{% for t in item.tags %}{% assign tag_pool = tag_pool | append: t | append: "|||" %}{% endfor %}{% endfor %}
+
+{% if tag_pool != "" %}
+  {% assign tag_array = tag_pool | split: "|||" %}
+  {% assign grouped = tag_array | group_by_exp: "t", "t" | sort: "size" | reverse %}
+  {% assign max_count = grouped[0].size %}
+  <div class="skill-bars">
+    {% for g in grouped %}
+    <div class="skill-bar-row">
+      <span class="skill-bar-label">#{{ g.name }}</span>
+      <span class="skill-bar-track"><span class="skill-bar-fill" style="width:{{ g.items.size | times: 100 | divided_by: max_count }}%"></span></span>
+      <span class="skill-bar-count">{{ g.items.size }}</span>
+    </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="skills-empty">No tagged content yet. Once you publish a blog post, lab writeup, or video with tags via <a href="{{ '/admin.html' | relative_url }}">/admin.html</a>, this chart fills in automatically.</div>
+{% endif %}
